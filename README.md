@@ -17,10 +17,14 @@ GRANT ALL PRIVILEGES ON * . * TO 'nazran'@'%';
 ```bash
 exit
 ```
+- login with previous username & password
 ```bash
 sudo mysql -u nazran -p
 ```
 ```sql
 CREATE DATABASE wds;
+```
+```bash
+exit
 ```
 
