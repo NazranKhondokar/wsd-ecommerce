@@ -14,4 +14,13 @@ CREATE USER 'nazran'@'%' IDENTIFIED BY 'password';
 ```sql
 GRANT ALL PRIVILEGES ON * . * TO 'nazran'@'%';
 ```
+```bash
+exit
+```
+```bash
+sudo mysql -u nazran -p
+```
+```sql
+CREATE DATABASE wds;
+```
 
