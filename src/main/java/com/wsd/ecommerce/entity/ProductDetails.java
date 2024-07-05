@@ -70,21 +70,6 @@ public class ProductDetails {
     @Column(name = "product_web_name", columnDefinition = "TEXT")
     private String productWebName;
 
-    @Column(name = "created_by")
-    private Integer createdBy;
-
-    @Column(name = "modified_by")
-    private Integer modifiedBy;
-
-    @Column(name = "created")
-    private LocalDateTime created;
-
-    @Column(name = "modified")
-    private LocalDateTime modified;
-
-    @Column(name = "deleted")
-    private final Integer deleted = 0;
-
     @Column(name = "image", length = 255)
     private String image;
 

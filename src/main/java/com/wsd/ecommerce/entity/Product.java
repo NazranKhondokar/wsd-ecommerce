@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "inv_fg_stock_master")
-public class Product {
+public class Product extends BaseEntity{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -48,19 +48,4 @@ public class Product {
 
     @Column(name = "product_web_name", columnDefinition = "TEXT")
     private String productWebName;
-
-    @Column(name = "created_by")
-    private Integer createdBy;
-
-    @Column(name = "modified_by")
-    private Integer modifiedBy;
-
-    @Column(name = "created")
-    private LocalDateTime created;
-
-    @Column(name = "modified")
-    private LocalDateTime modified;
-
-    @Column(name = "deleted")
-    private Integer deleted;
 }

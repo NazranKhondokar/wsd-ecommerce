@@ -38,20 +38,5 @@ public class SalesDetails {
 
     @Column(name = "total_price", precision = 30, scale = 6)
     public BigDecimal totalPrice;
-
-    @Column(name = "created_by")
-    public Integer createdBy;
-
-    @Column(name = "modified_by")
-    public Integer modifiedBy;
-
-    @Column(name = "created")
-    public LocalDateTime created;
-
-    @Column(name = "modified")
-    public LocalDateTime modified;
-
-    @Column(name = "deleted", columnDefinition = "int not null default 0")
-    public Integer deleted;
 }
 

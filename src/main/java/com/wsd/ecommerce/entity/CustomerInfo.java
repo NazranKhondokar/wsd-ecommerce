@@ -28,13 +28,4 @@ public class CustomerInfo {
 
     @Column(name = "remarks", columnDefinition = "TEXT")
     public String remarks;
-
-    @Column(name = "created_by")
-    public Integer createdBy;
-
-    @Column(name = "modified_by")
-    public Integer modifiedBy;
-
-    @Column(name = "created")
-    public LocalDateTime created;
 }

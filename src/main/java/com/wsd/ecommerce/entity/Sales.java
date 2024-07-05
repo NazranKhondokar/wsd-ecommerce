@@ -49,21 +49,6 @@ public class Sales {
     @Column(name = "remarks", columnDefinition = "MEDIUMTEXT")
     private String remarks;
 
-    @Column(name = "created_by")
-    private Integer createdBy;
-
-    @Column(name = "modified_by")
-    private Integer modifiedBy;
-
-    @Column(name = "created")
-    private LocalDateTime created;
-
-    @Column(name = "modified")
-    private LocalDateTime modified;
-
-    @Column(name = "deleted", columnDefinition = "int default 0")
-    private Integer deleted;
-
     @Column(name = "discount_code", length = 45)
     private String discountCode;
 

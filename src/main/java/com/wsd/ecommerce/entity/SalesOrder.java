@@ -52,21 +52,6 @@ public class SalesOrder {
     @Column(name = "status", columnDefinition = "int default 0")
     public Integer status;
 
-    @Column(name = "created_by")
-    public Integer createdBy;
-
-    @Column(name = "modified_by")
-    public Integer modifiedBy;
-
-    @Column(name = "created")
-    public LocalDateTime created;
-
-    @Column(name = "modified")
-    public LocalDateTime modified;
-
-    @Column(name = "deleted", columnDefinition = "int default 0")
-    public Integer deleted;
-
     @Column(name = "customer_id")
     public Integer customerId;
 
