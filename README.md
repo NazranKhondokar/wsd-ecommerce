@@ -1,5 +1,6 @@
 # Versions
-- 
+- `Spring Boot 3.2.2`
+- `mysql  Ver 8.3.0`
 
 # Database (MySQL) preparation
 ```bash
