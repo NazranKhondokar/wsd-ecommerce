@@ -1,3 +1,6 @@
+# Versions
+- 
+
 # Database (MySQL) preparation
 ```bash
 brew install mysql
@@ -22,9 +25,11 @@ exit
 sudo mysql -u nazran -p
 ```
 ```sql
-CREATE DATABASE wds;
+CREATE DATABASE wsd;
 ```
 ```bash
 exit
 ```
+# 
+
 
