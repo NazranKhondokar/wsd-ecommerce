@@ -1,5 +1,5 @@
 # Install MySQL
-bash```
+```bash
 brew install mysql
 brew services start mysql
 ```
