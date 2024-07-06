@@ -1,5 +1,6 @@
 package com.wsd.ecommerce.service.impl;
 
+import com.wsd.ecommerce.projection.MaxSaleDayProjection;
 import com.wsd.ecommerce.projection.ProductDetailProjection;
 import com.wsd.ecommerce.repository.ProductDetailsRepository;
 import com.wsd.ecommerce.service.ProductService;
@@ -19,5 +20,10 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public List<ProductDetailProjection> getTopItems() {
         return productDetailsRepository.getTopItems();
+    }
+
+    @Override
+    public MaxSaleDayProjection getMaxSaleDay(String start, String end) {
+        return productDetailsRepository.getMaxSaleDay(start, end);
     }
 }
