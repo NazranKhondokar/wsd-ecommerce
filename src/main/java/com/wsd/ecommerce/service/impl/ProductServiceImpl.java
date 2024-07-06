@@ -2,6 +2,7 @@ package com.wsd.ecommerce.service.impl;
 
 import com.wsd.ecommerce.projection.MaxSaleDayProjection;
 import com.wsd.ecommerce.projection.ProductDetailProjection;
+import com.wsd.ecommerce.projection.SaleDayProjection;
 import com.wsd.ecommerce.repository.ProductDetailsRepository;
 import com.wsd.ecommerce.service.ProductService;
 import lombok.RequiredArgsConstructor;
@@ -30,5 +31,10 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public MaxSaleDayProjection getMaxSaleDay(String start, String end) {
         return productDetailsRepository.getMaxSaleDay(start, end);
+    }
+
+    @Override
+    public SaleDayProjection getSaleDay() {
+        return productDetailsRepository.getSaleDay();
     }
 }

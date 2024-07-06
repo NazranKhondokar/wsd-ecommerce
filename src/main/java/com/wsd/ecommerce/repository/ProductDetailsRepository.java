@@ -3,6 +3,7 @@ package com.wsd.ecommerce.repository;
 import com.wsd.ecommerce.entity.ProductDetails;
 import com.wsd.ecommerce.projection.MaxSaleDayProjection;
 import com.wsd.ecommerce.projection.ProductDetailProjection;
+import com.wsd.ecommerce.projection.SaleDayProjection;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -76,4 +77,15 @@ public interface ProductDetailsRepository extends JpaRepository<ProductDetails, 
             LIMIT 1;
             """, nativeQuery = true)
     MaxSaleDayProjection getMaxSaleDay(String start, String end);
+
+    @Query(value = """
+            SELECT
+                COUNT(1) AS saleCount,
+                s.invoice_date AS saleDay
+            FROM sales s
+            WHERE
+                s.invoice_date = CURDATE()
+            GROUP BY s.invoice_date
+            """, nativeQuery = true)
+    SaleDayProjection getSaleDay();
 }

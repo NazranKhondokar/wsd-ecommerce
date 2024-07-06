@@ -2,6 +2,7 @@ package com.wsd.ecommerce.controller;
 
 import com.wsd.ecommerce.projection.MaxSaleDayProjection;
 import com.wsd.ecommerce.projection.ProductDetailProjection;
+import com.wsd.ecommerce.projection.SaleDayProjection;
 import com.wsd.ecommerce.service.ProductService;
 import com.wsd.ecommerce.service.impl.ProductServiceImpl;
 import io.swagger.v3.oas.annotations.Operation;
@@ -53,5 +54,12 @@ public class ProductController {
         if (start.isEmpty()) return badRequest().body(error(HttpStatus.NOT_ACCEPTABLE, "Please provide start date").getJson());
         if (end.isEmpty()) return badRequest().body(error(HttpStatus.NOT_ACCEPTABLE, "Please provide end date").getJson());
         return ok(success(service.getMaxSaleDay(start, end)).getJson());
+    }
+
+    @GetMapping("/sale-day")
+    @Operation(summary = "the total sale amount of the current day.")
+    @ApiResponse(content = {@Content(schema = @Schema(implementation = SaleDayProjection.class))})
+    public ResponseEntity<JSONObject> getSaleDay() {
+        return ok(success(service.getSaleDay()).getJson());
     }
 }
