@@ -7,6 +7,7 @@ import com.wsd.ecommerce.helper.CommonDataHelper;
 import com.wsd.ecommerce.response.CustomerWishResponse;
 import com.wsd.ecommerce.service.impl.CustomerWishServiceImpl;
 import com.wsd.ecommerce.util.PaginatedResponse;
+import com.wsd.ecommerce.validator.CustomerWishValidator;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -18,6 +19,7 @@ import org.json.simple.JSONObject;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ValidationUtils;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -26,6 +28,7 @@ import java.util.Optional;
 
 import static com.wsd.ecommerce.constant.MessageConstants.CUSTOMER_WISH_SAVE;
 import static com.wsd.ecommerce.constant.MessageConstants.CUSTOMER_WISH_UPDATE;
+import static com.wsd.ecommerce.exception.ApiError.fieldError;
 import static com.wsd.ecommerce.response.CustomerWishResponse.select;
 import static com.wsd.ecommerce.util.ResponseBuilder.*;
 import static org.springframework.http.ResponseEntity.badRequest;
@@ -37,8 +40,8 @@ import static org.springframework.http.ResponseEntity.ok;
 @Tag(name = "Customer Wish API")
 public class CustomerWishController {
 
+    private final CustomerWishValidator customerWishValidator;
     private final CustomerWishServiceImpl service;
-
     private final CommonDataHelper commonDataHelper;
 
     @PostMapping("/save")
@@ -47,6 +50,11 @@ public class CustomerWishController {
             @Content(mediaType = "application/json", schema = @Schema(implementation = CustomerWishResponse.class))
     })
     public ResponseEntity<JSONObject> save(@Valid @RequestBody CustomerWishDTO dto, BindingResult bindingResult) {
+
+        ValidationUtils.invokeValidator(customerWishValidator, dto, bindingResult);
+        if (bindingResult.hasErrors())
+            return badRequest().body(error(fieldError(bindingResult)).getJson());
+
         CustomerWish customerWish = service.save(dto);
         return ok(success(select(customerWish), CUSTOMER_WISH_SAVE).getJson());
     }
@@ -56,11 +64,15 @@ public class CustomerWishController {
     @ApiResponse(responseCode = "200", content = {
             @Content(mediaType = "application/json", schema = @Schema(implementation = CustomerWishResponse.class))
     })
-    public ResponseEntity<JSONObject> update(@Valid @RequestBody CustomerWishDTO dto) {
+    public ResponseEntity<JSONObject> update(@Valid @RequestBody CustomerWishDTO dto, BindingResult bindingResult) {
 
         Optional<CustomerWish> customerWish = service.findById(dto.getId());
         if (customerWish.isEmpty())
             return badRequest().body(error(HttpStatus.NOT_FOUND, "CustomerWish not found with id: " + dto.getId()).getJson());
+
+        ValidationUtils.invokeValidator(customerWishValidator, dto, bindingResult);
+        if (bindingResult.hasErrors())
+            return badRequest().body(error(fieldError(bindingResult)).getJson());
 
         CustomerWish updatedCustomerWish = service.update(customerWish.get(), dto);
         return ok(success(select(updatedCustomerWish), CUSTOMER_WISH_UPDATE).getJson());

@@ -3,8 +3,6 @@ package com.wsd.ecommerce.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.time.LocalDateTime;
-
 @Data
 @Entity
 @Table(name = "customer_info")
@@ -17,7 +15,7 @@ public class CustomerInfo {
     @Column(name = "name", length = 250)
     private String name;
 
-    @Column(name = "email", length = 255)
+    @Column(name = "email")
     private String email;
 
     @Column(name = "mobile_no", length = 55)
