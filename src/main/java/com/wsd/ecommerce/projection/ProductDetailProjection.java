@@ -1,8 +1,6 @@
 package com.wsd.ecommerce.projection;
 
-public interface CustomerWishProjection {
-    Integer getCustomerWishId();
-    Integer getCustomerId();
+public interface ProductDetailProjection {
     String getBarcodeNo();
     Integer getProductDetailId();
     Integer getPrice();

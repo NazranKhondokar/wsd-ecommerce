@@ -80,11 +80,9 @@ public class CustomerWishController {
     }
 
     @GetMapping("/list")
-    @Operation(summary = "show lists of all customerWish", description = "show lists of all customerWish")
-    @ApiResponse(responseCode = "200", content = {
-            @Content(mediaType = "application/json", schema = @Schema(implementation = CustomerWishResponse.class))
-    })
-    public ResponseEntity<JSONObject> lists(@RequestParam(value = "page", defaultValue = "1") Integer page,
+    @Operation(summary = "the wish list of a customer.")
+    @ApiResponse(content = {@Content(schema = @Schema(implementation = CustomerWishProjection.class))})
+    public ResponseEntity<JSONObject> list(@RequestParam(value = "page", defaultValue = "1") Integer page,
                                             @RequestParam(value = "size", defaultValue = "10") Integer size,
                                             @RequestParam(value = "sortBy", defaultValue = "") String sortBy,
                                             @RequestParam(value = "customerId", defaultValue = "") Integer customerId

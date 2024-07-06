@@ -18,6 +18,7 @@ public interface CustomerWishRepository extends JpaRepository<CustomerWish, Inte
     @Query(value = """
             SELECT
             	cw.id AS customerWishId,
+            	cw.customer_id AS customerId,
             	ifsd.barcode_no AS barcodeNo,
             	ifsd.id AS productDetailId,
             	ifsd.price AS price,
