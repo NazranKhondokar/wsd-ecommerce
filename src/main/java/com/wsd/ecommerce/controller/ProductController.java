@@ -2,6 +2,7 @@ package com.wsd.ecommerce.controller;
 
 import com.wsd.ecommerce.projection.MaxSaleDayProjection;
 import com.wsd.ecommerce.projection.ProductDetailProjection;
+import com.wsd.ecommerce.service.ProductService;
 import com.wsd.ecommerce.service.impl.ProductServiceImpl;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -28,13 +29,20 @@ import static org.springframework.http.ResponseEntity.ok;
 @Tag(name = "Product API")
 public class ProductController {
 
-    private final ProductServiceImpl service;
+    private final ProductService service;
 
     @GetMapping("/top-items")
     @Operation(summary = "show top 5 selling items of all time (based on total sale amount).")
     @ApiResponse(content = {@Content(schema = @Schema(implementation = ProductDetailProjection.class))})
     public ResponseEntity<JSONObject> list() {
         return ok(success(service.getTopItems()).getJson());
+    }
+
+    @GetMapping("/last-month-top-items")
+    @Operation(summary = "show top 5 selling items of the last month (based on number of sales).")
+    @ApiResponse(content = {@Content(schema = @Schema(implementation = ProductDetailProjection.class))})
+    public ResponseEntity<JSONObject> lastMonthList() {
+        return ok(success(service.getLastMonthTopItems()).getJson());
     }
 
     @GetMapping("/max-sale-day")

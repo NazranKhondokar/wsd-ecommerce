@@ -23,6 +23,11 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    public List<ProductDetailProjection> getLastMonthTopItems() {
+        return productDetailsRepository.getLastMonthTopItems();
+    }
+
+    @Override
     public MaxSaleDayProjection getMaxSaleDay(String start, String end) {
         return productDetailsRepository.getMaxSaleDay(start, end);
     }
