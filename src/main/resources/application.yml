@@ -16,8 +16,18 @@ spring:
   # Jackson Configuration
   jackson:
     date-format: yyyy-MM-dd
+
+  # flyway
+  flyway:
+    enabled: false
+    locations: classpath:db/migration
+    url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT
+    user: nazran
+    password: "password"
+
+  # MySQL
   datasource:
-    url: jdbc:mysql://localhost:3306/wsd?trustServerCertificate=true;
+    url: jdbc:mysql://localhost:3306/test?trustServerCertificate=true;
     username: nazran
     password: "password"
     driver-class-name: com.mysql.cj.jdbc.Driver

@@ -4,7 +4,6 @@ import com.wsd.ecommerce.projection.MaxSaleDayProjection;
 import com.wsd.ecommerce.projection.ProductDetailProjection;
 import com.wsd.ecommerce.projection.SaleDayProjection;
 import com.wsd.ecommerce.service.ProductService;
-import com.wsd.ecommerce.service.impl.ProductServiceImpl;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
