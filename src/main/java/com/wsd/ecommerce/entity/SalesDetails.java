@@ -13,30 +13,30 @@ public class SalesDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Integer id;
+    private Integer id;
 
     @Column(name = "sale_id")
-    public Integer saleId;
+    private Integer saleId;
 
     @Column(name = "inv_fg_stock_master_id")
-    public Integer invFgStockMasterId;
+    private Integer invFgStockMasterId;
 
     @Column(name = "inv_fg_stock_details_id")
-    public Integer invFgStockDetailsId;
+    private Integer invFgStockDetailsId;
 
     @Column(name = "uom_id")
-    public Integer uomId;
+    private Integer uomId;
 
     @Column(name = "uom_name", length = 50)
-    public String uomName;
+    private String uomName;
 
     @Column(name = "rate", precision = 30, scale = 6)
-    public BigDecimal rate;
+    private BigDecimal rate;
 
     @Column(name = "qty", precision = 30, scale = 6)
-    public BigDecimal qty;
+    private BigDecimal qty;
 
     @Column(name = "total_price", precision = 30, scale = 6)
-    public BigDecimal totalPrice;
+    private BigDecimal totalPrice;
 }
 

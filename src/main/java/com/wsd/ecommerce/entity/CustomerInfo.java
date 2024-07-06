@@ -12,20 +12,20 @@ public class CustomerInfo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Integer id;
+    private Integer id;
 
     @Column(name = "name", length = 250)
-    public String name;
+    private String name;
 
     @Column(name = "email", length = 255)
-    public String email;
+    private String email;
 
     @Column(name = "mobile_no", length = 55)
-    public String mobileNo;
+    private String mobileNo;
 
     @Column(name = "address", columnDefinition = "TEXT")
-    public String address;
+    private String address;
 
     @Column(name = "remarks", columnDefinition = "TEXT")
-    public String remarks;
+    private String remarks;
 }

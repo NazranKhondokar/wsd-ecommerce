@@ -10,41 +10,41 @@ public class SalesOrderDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Integer id;
+    private Integer id;
 
     @Column(name = "sale_order_id")
-    public Integer saleOrderId;
+    private Integer saleOrderId;
 
     @Column(name = "inv_item_config_id")
-    public Integer invItemConfigId;
+    private Integer invItemConfigId;
 
     @Column(name = "item_name", length = 255)
-    public String itemName;
+    private String itemName;
 
     @Column(name = "finish_goods_no", length = 255)
-    public String finishGoodsNo;
+    private String finishGoodsNo;
 
     @Column(name = "base_uom_id")
-    public Integer baseUomId;
+    private Integer baseUomId;
 
     @Column(name = "unit_price")
-    public Integer unitPrice;
+    private Integer unitPrice;
 
     @Column(name = "rate", precision = 30, scale = 6)
-    public BigDecimal rate;
+    private BigDecimal rate;
 
     @Column(name = "qty", precision = 30, scale = 6, columnDefinition = "decimal(30,6) default 0.000000")
-    public BigDecimal qty;
+    private BigDecimal qty;
 
     @Column(name = "total_value", precision = 30, scale = 6)
-    public BigDecimal totalValue;
+    private BigDecimal totalValue;
 
     @Column(name = "remarks", columnDefinition = "TEXT")
-    public String remarks;
+    private String remarks;
 
     @Column(name = "size_id", columnDefinition = "int default 0")
-    public Integer sizeId;
+    private Integer sizeId;
 
     @Column(name = "color_id")
-    public Integer colorId;
+    private Integer colorId;
 }

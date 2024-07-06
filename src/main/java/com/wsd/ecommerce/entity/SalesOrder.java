@@ -11,72 +11,72 @@ public class SalesOrder {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Integer id;
+    private Integer id;
 
     @Column(name = "sales_order_no", length = 55)
-    public String salesOrderNo;
+    private String salesOrderNo;
 
     @Column(name = "rasied_by")
-    public Integer raisedBy;
+    private Integer raisedBy;
 
     @Column(name = "rasied_for")
-    public Integer raisedFor;
+    private Integer raisedFor;
 
     @Column(name = "shop_id", columnDefinition = "int default 1")
-    public Integer shopId;
+    private Integer shopId;
 
     @Column(name = "total_value", precision = 30, scale = 6)
-    public BigDecimal totalValue;
+    private BigDecimal totalValue;
 
     @Column(name = "vat_amount", precision = 30, scale = 6, columnDefinition = "decimal(30,6) default 0.000000")
-    public BigDecimal vatAmount;
+    private BigDecimal vatAmount;
 
     @Column(name = "discount_code", length = 45)
-    public String discountCode;
+    private String discountCode;
 
     @Column(name = "discount_amount", precision = 30, scale = 6)
-    public BigDecimal discountAmount;
+    private BigDecimal discountAmount;
 
     @Column(name = "discount_status", columnDefinition = "int default 0")
-    public Integer discountStatus;
+    private Integer discountStatus;
 
     @Column(name = "delivery_date")
-    public LocalDate deliveryDate;
+    private LocalDate deliveryDate;
 
     @Column(name = "delivery_location", columnDefinition = "TEXT")
-    public String deliveryLocation;
+    private String deliveryLocation;
 
     @Column(name = "order_remarks", columnDefinition = "TEXT")
-    public String orderRemarks;
+    private String orderRemarks;
 
     @Column(name = "status", columnDefinition = "int default 0")
-    public Integer status;
+    private Integer status;
 
     @Column(name = "customer_id")
-    public Integer customerId;
+    private Integer customerId;
 
     @Column(name = "total_price", precision = 30, scale = 6)
-    public BigDecimal totalPrice;
+    private BigDecimal totalPrice;
 
     @Column(name = "remain_amount", precision = 30, scale = 6, columnDefinition = "decimal(30,6) not null default 0.000000")
-    public BigDecimal remainAmount;
+    private BigDecimal remainAmount;
 
     @Column(name = "employee_status")
-    public Integer employeeStatus;
+    private Integer employeeStatus;
 
     @Column(name = "refund_status", columnDefinition = "int default 0")
-    public Integer refundStatus;
+    private Integer refundStatus;
 
     @Column(name = "refund_date", length = 45)
-    public String refundDate;
+    private String refundDate;
 
     @Column(name = "sales_payment_status", length = 45)
-    public String salesPaymentStatus;
+    private String salesPaymentStatus;
 
     @Column(name = "gift_card_status")
-    public Integer giftCardStatus;
+    private Integer giftCardStatus;
 
     @Column(name = "gift_card_id", length = 45)
-    public String giftCardId;
+    private String giftCardId;
 }
 
