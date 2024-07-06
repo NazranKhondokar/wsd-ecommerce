@@ -15,18 +15,18 @@ public class CustomerWishDTO implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private Integer id;
-    private Integer productId;
+    private Integer productDetailId;
     private Integer customerId;
 
     public CustomerWish to() {
         CustomerWish customerWish = new CustomerWish();
-        customerWish.setProductId(productId);
+        customerWish.setProductDetailId(productDetailId);
         customerWish.setCustomerId(customerId);
         return customerWish;
     }
 
     public void update(CustomerWish customerWish) {
         customerWish.setCustomerId(customerId);
-        customerWish.setProductId(productId);
+        customerWish.setProductDetailId(productDetailId);
     }
 }

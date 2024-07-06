@@ -2,6 +2,7 @@ package com.wsd.ecommerce.service.impl;
 
 import com.wsd.ecommerce.dto.CustomerWishDTO;
 import com.wsd.ecommerce.entity.CustomerWish;
+import com.wsd.ecommerce.projection.CustomerWishProjection;
 import com.wsd.ecommerce.repository.CustomerWishRepository;
 import com.wsd.ecommerce.service.CustomerWishService;
 import com.wsd.ecommerce.util.ServiceHelper;
@@ -32,10 +33,10 @@ public class CustomerWishServiceImpl implements CustomerWishService {
         return repository.save(customerWish);
     }
 
-    public Map<String, Object> search(Integer page, Integer size, String sortBy, String search) {
-        ServiceHelper<CustomerWish> serviceHelper = new ServiceHelper<>(CustomerWish.class);
+    public Map<String, Object> search(Integer page, Integer size, String sortBy, Integer customerId) {
+        ServiceHelper<CustomerWishProjection> serviceHelper = new ServiceHelper<>(CustomerWishProjection.class);
         return serviceHelper.getList(
-                repository.search(search, serviceHelper.getPageable(sortBy, page, size)),
+                repository.search(customerId, serviceHelper.getPageable(sortBy, page, size)),
                 page, size);
     }
 

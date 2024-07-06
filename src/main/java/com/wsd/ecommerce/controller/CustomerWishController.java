@@ -4,6 +4,7 @@ package com.wsd.ecommerce.controller;
 import com.wsd.ecommerce.dto.CustomerWishDTO;
 import com.wsd.ecommerce.entity.CustomerWish;
 import com.wsd.ecommerce.helper.CommonDataHelper;
+import com.wsd.ecommerce.projection.CustomerWishProjection;
 import com.wsd.ecommerce.response.CustomerWishResponse;
 import com.wsd.ecommerce.service.impl.CustomerWishServiceImpl;
 import com.wsd.ecommerce.util.PaginatedResponse;
@@ -86,14 +87,13 @@ public class CustomerWishController {
     public ResponseEntity<JSONObject> lists(@RequestParam(value = "page", defaultValue = "1") Integer page,
                                             @RequestParam(value = "size", defaultValue = "10") Integer size,
                                             @RequestParam(value = "sortBy", defaultValue = "") String sortBy,
-                                            @RequestParam(value = "search", defaultValue = "") String search
+                                            @RequestParam(value = "customerId", defaultValue = "") Integer customerId
     ) {
 
         PaginatedResponse response = new PaginatedResponse();
-        Map<String, Object> map = service.search(page, size, sortBy, search);
-        List<CustomerWish> customerWishList = (List<CustomerWish>) map.get("lists");
-        List<CustomerWishResponse> responses = customerWishList.stream().map(CustomerWishResponse::select).toList();
-        commonDataHelper.getCommonData(page, size, map, response, responses);
+        Map<String, Object> map = service.search(page, size, sortBy, customerId);
+        List<CustomerWishProjection> customerWishList = (List<CustomerWishProjection>) map.get("lists");
+        commonDataHelper.getCommonData(page, size, map, response, customerWishList);
         return ok(paginatedSuccess(response).getJson());
     }
 

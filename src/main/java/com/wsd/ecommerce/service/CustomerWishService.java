@@ -15,7 +15,7 @@ public interface CustomerWishService {
     @Transactional
     CustomerWish update(CustomerWish customerWish, CustomerWishDTO dto);
 
-    Map<String, Object> search(Integer page, Integer size, String sortBy, String search);
+    Map<String, Object> search(Integer page, Integer size, String sortBy, Integer customerId);
 
     Optional<CustomerWish> findById(Integer entityId);
 

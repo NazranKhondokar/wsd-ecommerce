@@ -13,13 +13,13 @@ public class CustomerWishResponse implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private Integer id;
-    private Integer productId;
+    private Integer productDetailId;
     private Integer customerId;
 
     public static CustomerWishResponse select(CustomerWish customerWish) {
         CustomerWishResponse response = new CustomerWishResponse();
         response.setId(customerWish.getId());
-        response.setProductId(customerWish.getProductId());
+        response.setProductDetailId(customerWish.getProductDetailId());
         response.setCustomerId(customerWish.getCustomerId());
         return response;
     }

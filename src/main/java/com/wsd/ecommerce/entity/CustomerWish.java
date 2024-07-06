@@ -12,8 +12,8 @@ public class CustomerWish {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "product_id")
-    private Integer productId;
+    @Column(name = "product_detail_id")
+    private Integer productDetailId;
 
     @Column(name = "customer_id")
     private Integer customerId;
