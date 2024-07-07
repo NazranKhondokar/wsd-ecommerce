@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+
+  service:
+    container_name: wsd_ecommerce_service
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "1991:1991"
+    tty: true
+    networks:
+      - server
+
+networks:
+  server:
+    driver: bridge

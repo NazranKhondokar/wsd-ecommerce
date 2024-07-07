@@ -1,6 +1,10 @@
 # Versions
 - `Spring Boot 3.2.2`
 - `mysql  Ver 8.3.0`
+- `Docker version 24.0.5`
+- `gradle-8.8`
+- `flyway-9.22.3`
+- `lombok-1.18.30`
 
 # Database (MySQL) preparation
 ```bash
