@@ -43,7 +43,12 @@ exit
     password: <password>
 ```
 # Run the application
-- Check on `http://localhost:1991/swagger-ui/index.html` on browser if started application properly
+- Check `http://localhost:1991/swagger-ui/index.html` on browser if the application started  properly
+- the wish list of a customer: `/customer-wish/list?page=1&size=10&customerId=18`
+- the total sale amount of the current day: `/product/sale-day`
+- the max sale day of a certain time range: `/product/max-sale-day?start=2024-06-01&end=2024-06-30`
+- top 5 selling items of all time (based on total sale amount): `/product/top-items`
+- top 5 selling items of the last month (based on number of sales): `/product/last-month-top-items`
 
 # Database (MySQL) preparation in `docker`
 ```bash
@@ -71,10 +76,16 @@ sudo docker exec -it [container_name] bash
 ```bash
 sudo mysql -u root -p
 ```
-- Then provide the auto generated password to login and after change ethe password
+- Then provide the auto generated password to login and after change the password
 ```bash
 mysql> ALTER USER 'root'@'localhost' IDENTIFIED BY '[newpassword]';
 ```
 ```bash
 mysql> CREATE DATABASE wsd;
+```
+- Update the `application.yml` credentials with `[container_name]`
+```bash
+    url: jdbc:mysql://[container_name]:3306/wsd?trustServerCertificate=true;
+    username: <username>
+    password: <password>
 ```

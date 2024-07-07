@@ -18,6 +18,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Objects;
+
 import static com.wsd.ecommerce.util.ResponseBuilder.error;
 import static com.wsd.ecommerce.util.ResponseBuilder.success;
 import static org.springframework.http.ResponseEntity.badRequest;
@@ -59,6 +61,9 @@ public class ProductController {
     @Operation(summary = "the total sale amount of the current day.")
     @ApiResponse(content = {@Content(schema = @Schema(implementation = SaleDayProjection.class))})
     public ResponseEntity<JSONObject> getSaleDay() {
+
+        if (Objects.isNull(service.getSaleDay()))
+            return badRequest().body(error(HttpStatus.NOT_ACCEPTABLE, "No data found for today. Please update `sales` table.").getJson());
         return ok(success(service.getSaleDay()).getJson());
     }
 }
