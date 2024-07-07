@@ -21,14 +21,14 @@ spring:
   flyway:
     enabled: false
     locations: classpath:db/migration
-    url: jdbc:mysql://127.0.0.1:3306/wsd?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT
-    user: nazran
+    url: jdbc:mysql://mysql:3306/wsd?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT
+    user: root
     password: "password"
 
   # MySQL
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/wsd?trustServerCertificate=true;
-    username: nazran
+    url: jdbc:mysql://mysql:3306/wsd?trustServerCertificate=true;
+    username: root
     password: "password"
     driver-class-name: com.mysql.cj.jdbc.Driver
 

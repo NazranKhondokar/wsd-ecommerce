@@ -16,11 +16,11 @@ brew services start mysql
 ```bash
 sudo mysql
 ```
-```sql
-CREATE USER <username>@'%' IDENTIFIED BY <password>;
+```bash
+mysql> CREATE USER <username>@'%' IDENTIFIED BY <password>;
 ```
-```sql
-GRANT ALL PRIVILEGES ON * . * TO 'nazran'@'%';
+```bash
+mysql> GRANT ALL PRIVILEGES ON * . * TO 'nazran'@'%';
 ```
 ```bash
 exit
@@ -29,8 +29,8 @@ exit
 ```bash
 sudo mysql -u nazran -p
 ```
-```sql
-CREATE DATABASE wsd;
+```bash
+mysql> CREATE DATABASE wsd;
 ```
 ```bash
 exit
@@ -45,5 +45,36 @@ exit
 # Run the application
 - Check on `http://localhost:1991/swagger-ui/index.html` on browser if started application properly
 
-
-
+# Database (MySQL) preparation in `docker`
+```bash
+sudo docker pull mysql/mysql-server:latest
+```
+```bash
+sudo docker images
+```
+```bash
+sudo docker run --name=[container_name] -d mysql/mysql-server:latest
+```
+```bash
+docker ps
+```
+```bash
+sudo apt-get install mysql-client
+```
+```bash
+sudo docker logs [container_name]
+```
+- [Entrypoint] GENERATED ROOT PASSWORD: which will be needed
+```bash
+sudo docker exec -it [container_name] bash
+```
+```bash
+sudo mysql -u root -p
+```
+- Then provide the auto generated password to login and after change ethe password
+```bash
+mysql> ALTER USER 'root'@'localhost' IDENTIFIED BY '[newpassword]';
+```
+```bash
+mysql> CREATE DATABASE wsd;
+```

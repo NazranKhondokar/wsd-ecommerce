@@ -1,6 +1,17 @@
 version: '3.8'
 
 services:
+  mysqldb:
+    image: mysql
+    container_name: mysql
+    restart: always
+    environment:
+      MYSQL_USER: root
+      MYSQL_DATABASE: wsd
+      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: password
+    ports:
+      - "3306:3306"
 
   service:
     container_name: wsd_ecommerce_service
