@@ -22,18 +22,12 @@ mysql> CREATE USER <username>@'%' IDENTIFIED BY <password>;
 ```bash
 mysql> GRANT ALL PRIVILEGES ON * . * TO 'nazran'@'%';
 ```
-```bash
-exit
-```
 - Login with previous username & password
 ```bash
 sudo mysql -u nazran -p
 ```
 ```bash
 mysql> CREATE DATABASE wsd;
-```
-```bash
-exit
 ```
 # Connect Database (MySQL)
 - Update the `application.yml` credentials
