@@ -67,6 +67,7 @@ sudo docker logs [container_name]
 ```bash
 sudo docker exec -it [container_name] bash
 ```
+![User creation and password change in docker](bash.png)
 ```bash
 mysql -u root -p
 ```
@@ -95,3 +96,5 @@ mysql> CREATE DATABASE wsd;
 ```bash
 docker-compose up
 ```
+
+![After running in docker](docker.png)
