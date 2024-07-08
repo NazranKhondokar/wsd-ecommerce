@@ -68,7 +68,7 @@ sudo docker logs [container_name]
 sudo docker exec -it [container_name] bash
 ```
 ```bash
-sudo mysql -u root -p
+mysql -u root -p
 ```
 - Then provide the auto generated password to login and after change the password
 ```bash
@@ -77,9 +77,21 @@ mysql> ALTER USER 'root'@'localhost' IDENTIFIED BY '[newpassword]';
 ```bash
 mysql> CREATE DATABASE wsd;
 ```
-- Update the `application.yml` credentials with `[container_name]`
+- Update the `docker-compose.yml` credentials with `[container_name]`
 ```bash
-    url: jdbc:mysql://[container_name]:3306/wsd?trustServerCertificate=true;
-    username: <username>
-    password: <password>
+  mysqldb:
+    image: [container_name]
+    restart: always
+    ports:
+      - 3306:3306
+    networks:
+      - springapimysql-net
+    environment:
+      MYSQL_DATABASE: wsd
+      MYSQL_USER: <username>
+      MYSQL_PASSWORD: <password>
+      MYSQL_ROOT_PASSWORD: <password>
+```
+```bash
+docker-compose up
 ```
